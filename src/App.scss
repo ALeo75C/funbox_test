@@ -1,0 +1,260 @@
+@import "./colors";
+
+.App {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+
+  h1 {
+    font-family: "Exo";
+    width: 100%;
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .cardsCollection {
+    margin-top: 25px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .Card {
+      width: 320px;
+      color: #000;
+      .CardBody {
+        cursor: pointer;
+        position: relative;
+        height: 480px;
+        margin-bottom: 14px;
+        padding: 45px 0 0 48px;
+        border-style: solid;
+        border-color: $blue;
+        border-width: 0 4px 0 0;
+        overflow: hidden;
+        border-radius: 0 12px 12px 12px;
+        color: $light-gray;
+
+        .header {
+          p:last-of-type {
+            color: $hover-pink;
+            display: none;
+          }
+        }
+
+        h1 {
+          text-align: left;
+          margin-top: 5px;
+          font-size: 48px;
+          font-family: "Trebuchet MS";
+          font-weight: bold;
+          color: $black;
+        }
+        h2 {
+          font-size: 24px;
+          font-weight: bold;
+          color: $black;
+          margin-bottom: 15px;
+        }
+        p {
+          font-size: 14px;
+          span {
+            font-weight: bold;
+            color: $light-gray;
+          }
+        }
+        .weight {
+          z-index: 3;
+          width: 80px;
+          height: 80px;
+          border-radius: 100%;
+          background-color: $blue;
+          color: $white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          position: absolute;
+          bottom: 16px;
+          right: 16px;
+          p {
+            margin-top: 7px;
+            font-size: 42px;
+            margin-bottom: -1px;
+          }
+          span {
+            font-size: 21px;
+          }
+        }
+
+        .photo {
+          position: absolute;
+          bottom: 3px;
+          left: 4px;
+          border-radius: 0 0 0 12px;
+          width: 100%;
+          height: 272px;
+          background-image: url("./Photo.png");
+        }
+
+        & .null {
+          width: 272px;
+          height: 61px;
+          position: absolute;
+          top: 0;
+          right: -2px;
+          background-color: $gray;
+          border-style: solid;
+          border-color: $blue;
+          border-width: 4px 0 0 0;
+          border-radius: 0 12px 0 0;
+          z-index: -1;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          width: 102px;
+          height: 88px;
+          z-index: -1;
+          top: 7px;
+          left: 15px;
+          transform: rotate(45deg);
+          background-color: $gray;
+          border-style: solid;
+          border-color: $blue;
+          border-width: 0 0 0 4px;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          width: calc(100% - 2px);
+          left: 1px;
+          z-index: -1;
+          height: calc(100% - 48px);
+          bottom: 0px;
+          border-style: solid;
+          border-color: $blue;
+          border-width: 0px 0 4px 4px;
+          background-color: $gray;
+          border-radius: 0 12px 12px 12px;
+        }
+      }
+      footer {
+        display: inline-block;
+        color: #fff;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 25px;
+        span {
+          color: $hover-blue;
+          text-decoration: underline;
+        }
+        &.yellow {
+          color: #ffff66;
+        }
+      }
+
+      &.inactive,
+      &.inactive:hover {
+        .CardBody {
+          border-color: $medium-gray;
+          color: $medium-gray;
+          h1 {
+            color: $medium-gray;
+          }
+          h2 {
+            color: $medium-gray;
+          }
+          span {
+            color: $medium-gray;
+          }
+          .weight {
+            background-color: $medium-gray;
+            span {
+              color: $white;
+            }
+          }
+          .photo {
+            opacity: 0.5;
+          }
+
+          & .null {
+            border-color: $medium-gray;
+          }
+          &:before {
+            border-color: $medium-gray;
+          }
+          &:after {
+            border-color: $medium-gray;
+          }
+        }
+      }
+      &.active {
+        .CardBody {
+          border-color: $pink;
+          .weight {
+            background-color: $pink;
+          }
+
+          & .null {
+            border-color: $pink;
+          }
+          &:before {
+            border-color: $pink;
+          }
+          &:after {
+            border-color: $pink;
+          }
+        }
+        &:hover {
+          .CardBody {
+            border-color: $hover-pink;
+            .header {
+              p:first-of-type {
+                display: none;
+              }
+              p:last-of-type {
+                display: block;
+              }
+            }
+            .weight {
+              background-color: $hover-pink;
+            }
+
+            & .null {
+              border-color: $hover-pink;
+            }
+            &:before {
+              border-color: $hover-pink;
+            }
+            &:after {
+              border-color: $hover-pink;
+            }
+          }
+        }
+      }
+      &:hover {
+        .CardBody {
+          border-color: $hover-blue;
+          .weight {
+            background-color: $hover-blue;
+          }
+          & .null {
+            border-color: $hover-blue;
+          }
+          &:before {
+            border-color: $hover-blue;
+          }
+          &:after {
+            border-color: $hover-blue;
+          }
+        }
+      }
+    }
+  }
+}
